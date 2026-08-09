@@ -1,0 +1,19 @@
+:root {
+  /* Altera a fonte dos blocos de código para suportar ícones do terminal */
+  --sl-font-mono: 'JetBrainsMono Nerd Font', 'FiraCode Nerd Font', 'Hack Nerd Font', 'MesloLGS NF', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+/* Título principal da página (o 'Procedimentos Essenciais') */
+h1 {
+  font-size: 2.2rem; /* Reduz muito o tamanho */
+}
+
+/* Subtítulos principais (o 'Edição do arquivo pacman.conf') */
+h2 {
+  font-size: 1.6rem; /* Reduz de acordo */
+}
+
+/* Você também pode ajustar outros níveis se usar no seu tutorial */
+h3 {
+  font-size: 1.3rem;
+}

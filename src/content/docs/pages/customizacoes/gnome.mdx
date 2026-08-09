@@ -1,0 +1,107 @@
+---
+title: Ajustes e Customizações
+---
+
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+A seguir, serão apresentados ajustes que considero essenciais, como a ocultação de ícones indesejáveis na grade de aplicativos do Gnome, bem como ajustes visuais obtidos através de temas para aplicativos que ainda não foram portados para GTK4.
+
+## Ocultação de ícones da grade de aplicativos do Gnome
+
+Diferente de outras distribuições, o Arch Linux não costuma ocultar por padrão alguns ícones desnecessários na grade de aplicativos do Gnome. A ocultação desses ícones pode ser feita adicionando um único parâmetro ao arquivo `.desktop` correspondente ao aplicativo. Esses arquivos ficam localizados em:
+
+```bash showLineNumbers=false
+$ cd /usr/share/applications/
+```
+
+Para listar todos os arquivos dentro do diretório:
+
+```bash showLineNumbers=false
+$ ls
+```
+
+Após localizar o arquivo `.desktop` do aplicativo que deseja ocultar, basta adicionar o parâmetro `NoDisplay=true` ao final do arquivo e, em seguida, salvar e fechar. Porém, para que as mudanças permaneçam mesmo após a atualização do aplicativo, é necessário copiar esses arquivos para a sua pasta local de configurações, `~/.local/share/applications/`. Quando você coloca um arquivo `.desktop` com o mesmo nome nessa pasta, o sistema ignora o arquivo original em `/usr/share/`. Como essa pasta está dentro da sua `Home`, o _pacman_ nunca vai mexer nela.
+
+Em geral, estes são os aplicativos que costumo ocultar:
+
+```bash showLineNumbers=false
+avahi-discover.desktop
+bssh.desktop
+bvnc.desktop
+qv4l2.desktop
+qvidcap.desktop
+nm-connection-editor.desktop
+nvim.desktop
+xdvi.desktop
+```
+
+Em vez de copiar e editar um por um manualmente, você pode usar este comando no terminal para automatizar o processo para todos os itens da sua lista (**Cole o comando completo no terminal**):
+
+<Tabs>
+  <TabItem label="Bash">
+    ```bash showLineNumbers=false
+    $ mkdir -p ~/.local/share/applications/
+
+    apps=(
+      avahi-discover.desktop
+      bssh.desktop
+      bvnc.desktop
+      qv4l2.desktop
+      qvidcap.desktop
+      nm-connection-editor.desktop
+      nvim.desktop
+      xdvi.desktop
+    )
+
+    for app in "${apps[@]}"; do
+      if [ -f /usr/share/applications/"$app" ]; then
+        cp /usr/share/applications/"$app" ~/.local/share/applications/
+        # Remove a linha NoDisplay se ela já existir para não duplicar, depois adiciona
+        sed -i '/NoDisplay=/d' ~/.local/share/applications/"$app"
+        echo "NoDisplay=true" >> ~/.local/share/applications/"$app"
+        echo "Sucesso: $app agora está oculto."
+      else
+        echo "Aviso: $app não encontrado em /usr/share/applications/"
+      fi
+    done
+    ```
+  </TabItem>
+  
+  <TabItem label="Fish">
+    ```fish showLineNumbers=false
+    $ mkdir -p ~/.local/share/applications/
+
+    set apps avahi-discover.desktop bssh.desktop bvnc.desktop qv4l2.desktop qvidcap.desktop nm-connection-editor.desktop nvim.desktop xdvi.desktop
+
+    for app in $apps
+      if test -f /usr/share/applications/$app
+        cp /usr/share/applications/$app ~/.local/share/applications/
+        sed -i '/NoDisplay=/d' ~/.local/share/applications/$app
+        echo "NoDisplay=true" >> ~/.local/share/applications/$app
+        echo "Sucesso: $app agora está oculto localmente."
+      else
+        echo "Aviso: $app não encontrado em /usr/share/applications/"
+      end
+    end
+    ```
+  </TabItem>
+</Tabs>
+
+:::note[NOTA]
+Caso utilize o `fish` como _shell_ padrão, use a versão correspondente do código.
+:::
+
+## Instalação do tema adw-gtk3
+
+O tema `adw-gtk3` deixa a aparência dos aplicativos ainda baseados em GTK3 semelhante à dos aplicativos já portados para GTK4. No Arch Linux, esse tema já está disponível nos repositórios oficiais da distribuição:
+
+```bash showLineNumbers=false
+$ sudo pacman -S adw-gtk-theme
+```
+
+Para aplicação do tema em aplicativos flatpak é recomendado também instalar:
+
+```bash showLineNumbers=false
+$ flatpak install org.gtk.Gtk3theme.adw-gtk3 org.gtk.Gtk3theme.adw-gtk3-dark
+```
+Após isso, basta selecionar o tema através do aplicativo **Ajustes**.
