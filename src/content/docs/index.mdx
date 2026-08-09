@@ -1,19 +1,31 @@
 ---
-title: Welcome to Starlight
-description: Get started building your docs site with Starlight.
-template: splash # Remove or comment out this line to display the site sidebar on this page.
+title: Meu Tutorial Arch Linux
+description: Guia completo de pós-instalação, customização e gerenciamento do sistema.
+template: splash
 hero:
-  tagline: Congrats on setting up a new Starlight project!
+  title: |
+    Bem-vindo ao tutorial do
+    <span
+      class="font-black text-transparent
+        bg-clip-text bg-gradient-to-b
+        from-accent-700 to-accent-400
+        dark:from-accent-500 dark:to-accent-200"
+    >
+      Arch Linux
+    </span>
+  tagline: Um guia essencial de pós-instalação, customizações e gerenciamento!
   image:
     file: ../../assets/houston.webp
   actions:
-    - text: Example Guide
-      link: /guides/example/
+    - text: Começar o Tutorial
+      # AQUI ESTÁ A CORREÇÃO: O link agora inclui o /tutorial-arch/ 
+      # e aponta para a sua primeira página real!
+      link: /tutorial-arch/pages/pos-instalacao/procedimentos/
       icon: right-arrow
-    - text: Read the Starlight docs
-      link: https://starlight.astro.build
+      variant: primary
+    - text: Ver no GitHub
+      link: https://github.com/Dhett-creator/tutorial-arch
       icon: external
-      variant: minimal
 ---
 
 import { Card, CardGrid } from '@astrojs/starlight/components';
