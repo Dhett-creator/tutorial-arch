@@ -5,11 +5,11 @@ import { pluginLineNumbers } from '@expressive-code/plugin-line-numbers';
 
 // https://astro.build/config
 export default defineConfig({
+    site: 'https://Dhett-creator.github.io',
+    base: '/tutorial-arch',
     integrations: [
         starlight({
             title: 'My Docs',
-            site: 'https://Dhett-creator.github.io',
-            base: '/tutorial-arch',
             locales: {
 				      root: {
 					      label: 'Português do Brasil',
