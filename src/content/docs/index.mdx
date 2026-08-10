@@ -1,5 +1,5 @@
 ---
-title: Meu Tutorial Arch Linux
+title: Tutorial Arch Linux
 description: Guia completo de pós-instalação, customização e gerenciamento do sistema.
 template: splash
 hero:
@@ -13,40 +13,47 @@ hero:
     >
       Arch Linux
     </span>
-  tagline: Um guia essencial de pós-instalação, customizações e gerenciamento!
+  tagline: Um guia essencial de pós-instalação, customizações e gerenciamento avançado!
   image:
     file: ../../assets/houston.webp
   actions:
     - text: Começar o Tutorial
-      # AQUI ESTÁ A CORREÇÃO: O link agora inclui o /tutorial-arch/ 
-      # e aponta para a sua primeira página real!
       link: /tutorial-arch/pages/pos-instalacao/procedimentos/
       icon: right-arrow
       variant: primary
-    - text: Ver no GitHub
-      link: https://github.com/Dhett-creator/tutorial-arch
-      icon: external
 ---
 
 import { Card, CardGrid } from '@astrojs/starlight/components';
 
-## Next steps
+<div style="padding-top: 5rem; padding-bottom: 2rem;">
+  <span style="color: var(--sl-color-accent-high); font-weight: 700; font-size: var(--sl-text-sm);">O que este guia não é?</span>
+  <h2 style="font-size: clamp(1.8rem, 3vw, 2.5rem); line-height: 1.2; margin-top: 0.5rem; border: none;">
+    Tenha paciência, ainda não pensei em algo legal :)
+  </h2>
+</div>
 
-<CardGrid stagger>
-	<Card title="Update content" icon="pencil">
-		Edit `src/content/docs/index.mdx` to see this page change.
-	</Card>
-	<Card title="Change page layout" icon="document">
-		Delete `template: splash` in `src/content/docs/index.mdx` to display a
-		sidebar on this page.
-	</Card>
-	<Card title="Add new content" icon="add-document">
-		Add Markdown or MDX files to `src/content/docs` to create new pages.
-	</Card>
-	<Card title="Configure your site" icon="setting">
-		Edit your `sidebar` and other config in `astro.config.mjs`.
-	</Card>
-	<Card title="Read the docs" icon="open-book">
-		Learn more in [the Starlight Docs](https://starlight.astro.build/).
-	</Card>
-</CardGrid>
+<div class="custom-hero-cards">
+  <CardGrid>
+    <Card title="Configurações Essenciais" icon="setting">
+      Otimização do pacman, gestão de swap com zram, ativação de firewall e codecs multimídia para um sistema redondo logo no primeiro boot.
+    </Card>
+    
+    <Card title="Automação de Torrents" icon="document">
+      Scripts completos em Python e Bash para monitoramento automático de pastas e integração limpa do qBittorrent e rTorrent com o systemd.
+    </Card>
+    
+    <Card title="Customização de Terminal" icon="laptop">
+      Substitua o bash padrão pelo Fish shell, configure o prompt do Starship e eleve a produtividade usando emuladores de terminal acelerados via GPU.
+    </Card>
+
+    {/* Novo Card Adicionado */}
+    <Card title="Gerenciamento de Discos" icon="rocket">
+      Aprenda a formatar dispositivos, transferir arquivos com eficiência via rsync e configurar arranjos RAID0 diretamente pelo terminal.
+    </Card>
+  </CardGrid>
+</div>
+
+<div class="footer-customizado">
+  <p>Lançado sob a licença MIT</p>
+  <p>Direitos reservados &copy; 2025-2026 Dhett</p>
+</div>

@@ -9,7 +9,10 @@ export default defineConfig({
     base: '/tutorial-arch',
     integrations: [
         starlight({
-            title: 'My Docs',
+            title: 'Arch',
+            logo: {
+                src: './src/assets/arch.svg',
+            },
             locales: {
 				      root: {
 					      label: 'Português do Brasil',
@@ -20,22 +23,28 @@ export default defineConfig({
             expressiveCode: {
 				      plugins: [pluginLineNumbers()],
 			      },
-            social: [{ icon: 'github', label: 'GitHub', href: 'https://github.com/withastro/starlight' }],
+            social: [{ icon: 'github', label: 'GitHub', href: 'https://github.com/Dhett-creator/tutorial-arch' }],
             sidebar: [
                 {
                     label: 'Pós instalação',
                     items: [
                         // Each item here is one entry in the navigation menu.
-                        { label: 'Example Guide', slug: 'guides/example' },
+                        //{ label: 'Example Guide', slug: 'guides/example' },
                         { label: 'Procedimentos Essenciais', slug: 'pages/pos-instalacao/procedimentos' },
-                        { label: 'Downgrade de Pacotes', slug: 'pages/pos-instalacao/downgrade' },
+                    ],
+                },
+                {
+                    label: 'Manutenção do Sistema',
+                    items: [
+                        { label: 'Gerenciamento do cache do pacman', slug: 'pages/manutencao/pacman' },
+                        { label: 'Downgrade de Pacotes', slug: 'pages/manutencao/downgrade' },
                     ],
                 },
                 {
                     label: 'Customizações',
                     items: [
                         { label: 'Interface Gnome', slug: 'pages/customizacoes/gnome' },
-                        { label: 'Customização do Terminal', slug: 'pages/customizacoes/terminal' },
+                        { label: 'Personalização do Terminal', slug: 'pages/customizacoes/terminal' },
                         { label: 'Terminal Ghostty', slug: 'pages/customizacoes/ghostty' },
                     ],
                 },
