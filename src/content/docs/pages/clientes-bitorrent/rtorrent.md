@@ -320,7 +320,7 @@ As linhas destacadas requerem adaptação por parte do usuário.
 :::
 
 :::note[NOTA]
-Essa configuração foi criada e ajustada para a versão <u>0.16.20</u> do rTorrent. Ela oferece uma automação básica para a adição e remoção de arquivos, exigindo apenas que o usuário ajuste corretamente os diretórios de criação de pastas e de armazenamento dos arquivos baixados. Foram definidos três diretórios `watch` para o monitoramento de arquivos `.torrent`. Basta que o usuário adicione um ou mais arquivos `.torrent` em qualquer um desses diretórios para que o _download_ seja iniciado automaticamente no diretório correspondente.
+Essa configuração foi criada e ajustada para a versão <u>0.16.22</u> do rTorrent. Ela oferece uma automação básica para a adição e remoção de arquivos, exigindo apenas que o usuário ajuste corretamente os diretórios de criação de pastas e de armazenamento dos arquivos baixados. Foram definidos três diretórios `watch` para o monitoramento de arquivos `.torrent`. Basta que o usuário adicione um ou mais arquivos `.torrent` em qualquer um desses diretórios para que o _download_ seja iniciado automaticamente no diretório correspondente.
 :::
 
 Para verificar rapidamente se a configuração está correta, inicie o rTorrent via terminal:
