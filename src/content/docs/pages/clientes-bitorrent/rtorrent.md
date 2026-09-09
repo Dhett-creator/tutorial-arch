@@ -70,19 +70,19 @@ network.port_range.set = 50000
 #############################################################################
 
 ## Ativa o DHT (essencial para torrents públicos e magnet links)
-dht.mode.set = auto
+dht.mode.set = disable
 
 ## Define a porta que o DHT vai usar (pode ser a mesma do torrent ou uma específica)
 ## Escolhi 6881 seguindo as instruções da documentação do rtorrent
-dht.override_port.set = 6881
+# dht.override_port.set = 6881
 
 ## Adiciona servidores "raiz" para ajudar o rTorrent a encontrar a rede DHT
 ## na primeira vez que ele iniciar
-dht.add_node = router.bittorrent.com:6881
-dht.add_node = router.utorrent.com:6881
+# dht.add_node = router.bittorrent.com:6881
+# dht.add_node = router.utorrent.com:6881
 
 ## Ativa a troca de Peers (PEX)
-protocol.pex.set = yes
+# protocol.pex.set = yes
 
 #############################################################################
 ## 5. CONFIGURAÇÕES DE PEERS E UPLOAD
@@ -216,10 +216,10 @@ schedule = watch_pasta3, 10, 10, ((load.start_verbose, \
 #############################################################################
 
 ## Notifica quando um download termina
-method.set_key = event.download.finished,notify_me,"execute=/usr/local/bin/rtorrent-downloaded.sh,$d.name="
+method.set_key = event.download.finished,notify_me,"execute=/usr/local/bin/rtorrent-downloaded.sh,$d.name=,$d.base_path.realpath.or_empty="
 
 ## Notifica quando um torrent é adicionado
-method.set_key = event.download.inserted_new,notify_added,"execute=/usr/local/bin/rtorrent-added.sh,$d.name="
+method.set_key = event.download.inserted_new,notify_added,"execute=/usr/local/bin/rtorrent-added.sh,$d.name=,$d.base_path.realpath.or_empty="
 
 #############################################################################
 ## 14. EXCLUSÃO DE ARQUIVOS (LIXEIRA)
@@ -289,26 +289,26 @@ method.insert = d.down.sequential.set, value|const, 0
 #############################################################################
 
 ## Título e rodapé
-ui.color.title.set = "bold black on bright blue"
-ui.color.footer.set = "bold black on blue"
+# ui.color.title.set = "bold black on bright blue"
+# ui.color.footer.set = "bold black on blue"
 
 ## Torrent em foco
-ui.color.focus.set = "reverse"
+# ui.color.focus.set = "reverse"
 
 ## Etiquetas
-ui.color.label.set = "grey"
+# ui.color.label.set = "grey"
 
 ## Estados dos torrents
-ui.color.complete.set = "green"
-ui.color.seeding.set = "blue"
-ui.color.stopped.set = "red"
-ui.color.queued.set = "magenta"
-ui.color.leeching.set = "yellow"
-ui.color.incomplete.set = "cyan"
+# ui.color.complete.set = "green"
+# ui.color.seeding.set = "blue"
+# ui.color.stopped.set = "red"
+# ui.color.queued.set = "magenta"
+# ui.color.leeching.set = "yellow"
+# ui.color.incomplete.set = "cyan"
 
 ## Estilo das linhas
-ui.color.odd.set = "bold"
-ui.color.even.set = "bold"
+# ui.color.odd.set = "bold"
+# ui.color.even.set = "bold"
 
 #############################################################################
 ### END OF rtorrent.rc ###

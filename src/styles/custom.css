@@ -75,19 +75,28 @@ h3 {
   background-attachment: fixed !important;
 }
 
+/* Remove o espaçamento invisível padrão do fundo da página inicial */
+:root[data-has-hero] main {
+  padding-bottom: 0 !important;
+}
+
 /* ======================================================
    RODAPÉ CUSTOMIZADO (Página Inicial)
    ====================================================== */
 .footer-customizado {
-  margin-top: 15rem; 
+  /* Usamos 'vh' para empurrar o rodapé para baixo proporcionalmente ao tamanho do seu monitor */
+  margin-top: 25vh; 
+  
   padding-top: 2rem;
+  padding-bottom: 1rem; /* Um pequeno respiro para o texto não ficar cortado pela borda do navegador */
+  
   text-align: center;
   color: var(--sl-color-gray-3);
   font-size: var(--sl-text-sm);
+  
   margin-left: calc(50% - 50vw);
   margin-right: calc(50% - 50vw);
   
-  /* Aumentando a espessura para 2px no tema escuro */
   border-top: 2px solid rgba(255, 255, 255, 0.15); 
 }
 
