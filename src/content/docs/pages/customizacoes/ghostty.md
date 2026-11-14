@@ -38,7 +38,13 @@ font-size = 12
 
 # --- Tema e Aparência ---
 # (Ex.: Gnome Adwaita, Gruvbox Material, etc.)
-#theme =
+#theme = Gruvbox Material
+
+# Transparência do fundo (0.0 totalmente transparente, 1.0 opaco)
+#background-opacity = 0.55
+
+# Raio do blur (opcional, pode depender do suporte do compositor)
+#background-blur = 100
 
 # --- Comportamento ---
 # Garante que o ghostty inicie no shell de sua preferência (Ex.: bash, fish, etc.)
