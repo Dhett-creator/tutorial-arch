@@ -57,6 +57,12 @@ export default defineConfig({
                     ],
                 },
                 {
+                    label: 'Configuração de Periféricos',
+                    items: [
+                        { label: 'Mouse ATK F1 V3', slug: 'pages/gerenciamento-de-dispositivos/mouse-atk-f1-v3' },
+                    ],
+                },
+                {
                     label: 'Clientes Bitorrent',
                     items: [
                         { label: 'qBittorrent', slug: 'pages/clientes-bitorrent/qbittorrent' },

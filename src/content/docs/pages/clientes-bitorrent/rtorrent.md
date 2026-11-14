@@ -239,13 +239,10 @@ method.set_key = event.download.inserted_new,notify_added,"execute=/usr/local/bi
 log.open_file = "log_file", (cfg.logfile)
 
 ## Registra apenas o necessário: Erros, Avisos e Críticos
-log.add_output = "error", "log_file"
-log.add_output = "critical", "log_file"
-log.add_output = "warn", "log_file"
+log.add_output = "errors", "log_file"
 
 ## Mantém o foco no problema de travamento, mas apenas em caso de ERRO (Em análise no momento!)
 log.add_output = "protocol_storage_errors", "log_file"
-log.add_output = "storage_error", "log_file"
 
 #############################################################################
 ## 16. VIEWS
@@ -320,7 +317,7 @@ As linhas destacadas requerem adaptação por parte do usuário.
 :::
 
 :::note[NOTA]
-Essa configuração foi criada e ajustada para a versão <u>0.16.22</u> do rTorrent. Ela oferece uma automação básica para a adição e remoção de arquivos, exigindo apenas que o usuário ajuste corretamente os diretórios de criação de pastas e de armazenamento dos arquivos baixados. Foram definidos três diretórios `watch` para o monitoramento de arquivos `.torrent`. Basta que o usuário adicione um ou mais arquivos `.torrent` em qualquer um desses diretórios para que o _download_ seja iniciado automaticamente no diretório correspondente.
+Essa configuração foi criada e ajustada para a versão <u>0.16.28</u> do rTorrent. Ela oferece uma automação básica para a adição e remoção de arquivos, exigindo apenas que o usuário ajuste corretamente os diretórios de criação de pastas e de armazenamento dos arquivos baixados. Foram definidos três diretórios `watch` para o monitoramento de arquivos `.torrent`. Basta que o usuário adicione um ou mais arquivos `.torrent` em qualquer um desses diretórios para que o _download_ seja iniciado automaticamente no diretório correspondente.
 :::
 
 Para verificar rapidamente se a configuração está correta, inicie o rTorrent via terminal:
@@ -559,9 +556,9 @@ Escolha um nome de usuário e senha para proteger o acesso à interface. Em segu
 
 ## _Script_ para apagar arquivos _.torrent_ legados
 
-Ao excluir vários *torrents* simultaneamente pela interface do Flood, é comum que nem todos os arquivos `.torrent` correspondentes sejam removidos das pastas monitoradas. Como resultado, esses arquivos permanecem disponíveis para o rTorrent que, ao ser reiniciado, interpreta sua presença como novos *torrents* a serem adicionados à sessão, iniciando novamente seus respectivos downloads.
+Ao excluir vários _torrents_ simultaneamente pela interface do Flood, é comum que nem todos os arquivos `.torrent` correspondentes sejam removidos das pastas monitoradas. Como resultado, esses arquivos permanecem disponíveis para o rTorrent que, ao ser reiniciado, interpreta sua presença como novos _torrents_ a serem adicionados à sessão, iniciando novamente seus respectivos downloads.
 
-Para evitar esse comportamento, podemos criar um *script* que execute verificações periódicas, comparando os *torrents* atualmente presentes na sessão do rTorrent com os arquivos `.torrent` existentes nas pastas monitoradas. Caso sejam encontrados arquivos `.torrent` que não possuam uma sessão correspondente no rTorrent, eles poderão ser removidos automaticamente.
+Para evitar esse comportamento, podemos criar um _script_ que execute verificações periódicas, comparando os _torrents_ atualmente presentes na sessão do rTorrent com os arquivos `.torrent` existentes nas pastas monitoradas. Caso sejam encontrados arquivos `.torrent` que não possuam uma sessão correspondente no rTorrent, eles poderão ser removidos automaticamente.
 
 Primeiro, crie o arquivo do _script_:
 
